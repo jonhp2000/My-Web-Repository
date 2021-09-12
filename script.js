@@ -16,4 +16,13 @@ const messages = [
   ],
 ];
 
-console.log(messages[0][1] + "\n" + messages[1][1]);
+let index = 0;
+let string = messages[0] + "\n\n";
+let array = [messages[1], messages[2]];
+let index2 = Math.floor(Math.random() * 2);
+
+string += array[index2] + "\n\n";
+array.splice(index2, 1);
+string += array[0];
+
+console.log(string);
