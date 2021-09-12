@@ -16,13 +16,26 @@ const messages = [
   ],
 ];
 
-let index = 0;
-let string = messages[0] + "\n\n";
-let array = [messages[1], messages[2]];
-let index2 = Math.floor(Math.random() * 2);
+const indexFirstMessage = Math.floor(Math.random() * 3);
+let string =
+  messages[indexFirstMessage][Math.floor(Math.random() * 3)] + "\n\n";
+let array = [];
 
-string += array[index2] + "\n\n";
-array.splice(index2, 1);
-string += array[0];
+switch (indexFirstMessage) {
+  case 0:
+    array = [messages[1], messages[2]];
+    break;
+  case 1:
+    array = [messages[0], messages[2]];
+    break;
+  case 2:
+    array = [messages[0], messages[1]];
+}
+
+const indexSecondMessage = Math.floor(Math.random() * 2);
+
+string += array[indexSecondMessage][Math.floor(Math.random() * 3)] + "\n\n";
+array.splice(indexSecondMessage, 1);
+string += array[0][Math.floor(Math.random() * 3)];
 
 console.log(string);
